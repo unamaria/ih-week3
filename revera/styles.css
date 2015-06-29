@@ -1,4 +1,14 @@
+body, button, input, select, textarea {
+  color: #606060;
+  font-family: 'Oxygen',sans-serif;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
 
+.postbox h3 a:link, .postbox h3 a:visited, .portbox h3 a:link, .portbox h3 a:visited {
+  color: #000;
+}
 
 .fwidgets {
   padding: 40px 0px;
@@ -42,3 +52,18 @@
   color: #AAA;
   padding-bottom: 20px;
 }
+
+#bottom {
+  padding: 20px 0px 40px 0px;
+  background: #3B3B3B;
+  border-top: 5px solid #ED564B;
+}
+
+h3.bothead {
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 10px 0px;
+  color: #FFF;
+  text-transform: uppercase;
+}
+
