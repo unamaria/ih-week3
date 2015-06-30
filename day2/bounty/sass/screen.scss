@@ -20,8 +20,10 @@ body {
 	padding: .5em 0;
 }
 
-.bounty {
-	@include col(1/2);
+@media (min-width: 768px) {
+	.bounty {
+		@include col(1/2);
+	}
 }
 
 .panel-default {
