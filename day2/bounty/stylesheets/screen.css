@@ -7477,6 +7477,10 @@ body {
   font-family: 'Roboto', sans-serif; }
 
 /* line 19, ../sass/screen.scss */
+.img-responsive {
+  padding: .5em 0; }
+
+/* line 23, ../sass/screen.scss */
 .bounty {
   float: left;
   clear: none;
@@ -7487,46 +7491,50 @@ body {
   .bounty:last-child {
     margin-right: 0; }
 
-/* line 23, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 .panel-default {
   border-color: #f5f5f5; }
 
-/* line 27, ../sass/screen.scss */
+/* line 31, ../sass/screen.scss */
 .panel-default > .panel-heading.panel-heading {
   background-color: white;
   border-color: #f5f5f5; }
 
-/* line 32, ../sass/screen.scss */
+/* line 36, ../sass/screen.scss */
 .new_activity {
   padding: 1.5em 0;
   color: #aaa;
   font-size: .9em; }
 
-/* line 38, ../sass/screen.scss */
+/* line 42, ../sass/screen.scss */
 .content {
   font-size: 1.5em;
   padding: .5em 0; }
 
-/* line 43, ../sass/screen.scss */
+/* line 47, ../sass/screen.scss */
 .bounty__usd {
   color: #f3ab4c; }
 
-/* line 47, ../sass/screen.scss */
+/* line 51, ../sass/screen.scss */
 .label-default {
   color: #aaa;
   background: white;
   border: 1px solid #aaa;
   font-size: 0.75rem; }
 
-/* line 54, ../sass/screen.scss */
+/* line 58, ../sass/screen.scss */
 .label-hot {
   color: #f64f5a; }
 
-/* line 58, ../sass/screen.scss */
+/* line 62, ../sass/screen.scss */
 .glyphicon-heart {
   color: red; }
 
-/* line 62, ../sass/screen.scss */
+/* line 66, ../sass/screen.scss */
+.media-object {
+  min-width: 30px; }
+
+/* line 70, ../sass/screen.scss */
 .btn-default {
   border-radius: 60px;
   padding: .5em 1.8em;
