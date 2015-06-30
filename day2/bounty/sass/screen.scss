@@ -1,0 +1,65 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "bootstrap"; // same as "sass/imports/_bootstrap.css"
+@import "jeet/index";
+
+html {
+	font-size: 100%;
+}
+
+body {
+	background: #f5f5f5;
+
+	font-family: 'Roboto', sans-serif;
+}
+
+.bounty {
+	@include col(1/2);
+}
+
+.panel-default {
+	border-color: #f5f5f5;
+}
+
+.panel-default > .panel-heading.panel-heading {
+	background-color: white;
+	border-color: #f5f5f5;
+}
+
+.new_activity {
+	padding: 1.5em 0;
+	color: #aaa;
+	font-size: .9em;
+}
+
+.content__main {
+	font-size: 1.5em;
+	padding: .5em 0;
+}
+
+.bounty_card__content__usd {
+	color: #f3ab4c;
+}
+
+.label-default {
+	color: #aaa;
+	background: white;
+	border: 1px solid #aaa;
+	font-size: 0.75rem;
+}
+
+.label-hot {
+	color: #f64f5a;
+}
+
+.btn-default {
+	border-radius: 60px;
+	padding: .5em 1.8em;
+	border-color: #2889D8;
+	color: #2889d8;
+	margin-left: .5em;
+}
