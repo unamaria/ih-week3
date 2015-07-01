@@ -1,9 +1,35 @@
+
 body, button, input, select, textarea {
   color: #606060;
   font-family: 'Oxygen',sans-serif;
   font-size: 14px;
   font-size: 1.4rem;
   line-height: 1.6;
+}
+
+h1.site-title {
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-top: 25px;
+}
+
+h1.site-title a:link, h1.site-title a:visited {
+  color: #000;
+}
+
+#submenu ul {
+  list-style-type: none;
+  display: inline;
+}
+
+#submenu li a {
+  color: #777;
+  display: block;
+  margin: 0;
+  padding: 19px 10px 19px 10px;
+  text-decoration: none;
+  position: relative;
+  float: left;
 }
 
 .postbox h3 a:link, .postbox h3 a:visited, .portbox h3 a:link, .portbox h3 a:visited {
@@ -19,6 +45,7 @@ body, button, input, select, textarea {
 
 .homewidget {
 	color: white;
+  text-align: center;
 }
 
 .homewidget span {
