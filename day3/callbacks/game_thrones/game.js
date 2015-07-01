@@ -1,3 +1,5 @@
 var fs = require('fs');
-var fileActions = require('./fileactions.js')
-fs.readFile("./episodes.json", 'utf8', fileActions);
+var fileActions = require('./fileactions.js');
+var fileFilter = require('./filefiltered.js');
+
+fs.readFile("./episodes.json", 'utf8', fileFilter);
