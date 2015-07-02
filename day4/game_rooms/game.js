@@ -5,18 +5,24 @@ var Game = function () {
 	this.currentRoom = 0;
 };
 
+Game.prototype.start = function() {
+	console.log(this.rooms[this.currentRoom].description);
+	this.getInput();
+};
+
 Game.prototype.moveNext = function() {
 	if (this.currentRoom === this.rooms.length - 1) {
 		console.log('CONGRATULATIONS! You reached the end.');
 	} else {
 		this.currentRoom++;
+		console.log(this.rooms[this.currentRoom].description);
+		this.getInput();
 	}
 };
 
 Game.prototype.checkInput = function(err, input) {
 	if (this.rooms[this.currentRoom].allowedMovements.indexOf(input) !== -1 ) {
 		this.moveNext();
-		console.log(this.rooms[this.currentRoom].description);
 	}	else {
 		console.log(this.rooms[this.currentRoom].errorMessage);
 		console.log(this.rooms[this.currentRoom].description);
