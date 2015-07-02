@@ -9,6 +9,21 @@ Cart.prototype.add = function (item) {
 	this.items.push(item);
 };
 
+Cart.prototype.remove = function (itemName, amount) {
+	if (typeof amount !== 'undefined') {
+		for (var i = this.items.length - 1; i >= 0 && amount > 0; i--) {
+			if (this.items[i].name === itemName) {
+				this.items.splice(i, 1);
+				amount--;
+			}
+		}
+	} else {
+		this.items = this.items.filter (function (item) {
+			return item.name !== itemName;
+		});
+	}
+};
+
 Cart.prototype.applyDiscount = function (item) {
 	if (item.name === 'orange') {
 		var total_oranges = 0;
@@ -54,3 +69,7 @@ cart.add(new Item('apple', 10));
 cart.calculateTotal();
 
 console.log('Your total is ' + cart.total);
+console.log(cart.items);
+cart.remove('orange', 4);
+console.log(cart.items);
+
