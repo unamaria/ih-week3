@@ -5,7 +5,7 @@ var Cart = function () {
 
 Cart.prototype.add = function (item) {
 	this.applyDiscount(item);
-	console.log('You are adding a ' + item.name + ' at a price of ' + item.price);
+	console.log('Adding ' + item.name + ' to the cart at a price of ' + item.price);
 	this.items.push(item);
 };
 
@@ -45,6 +45,9 @@ Cart.prototype.calculateTotal = function () {
 	this.items.forEach (function(item) {
 		this.total += item.price;
 	}.bind(this));
+	if (this.items.length > 5) {
+		this.total = this.total * 0.9;
+	}
 };
 
 var Item = function (name, price) {
@@ -69,7 +72,4 @@ cart.add(new Item('apple', 10));
 cart.calculateTotal();
 
 console.log('Your total is ' + cart.total);
-console.log(cart.items);
 cart.remove('orange', 4);
-console.log(cart.items);
-
