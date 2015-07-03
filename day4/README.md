@@ -30,3 +30,24 @@ joshsCart.removeItem(“Banana”, 3)
 If I don’t pass a number to the function, I want to remove all of the items.
 ```
 If the amount selected to be removed is greater than what is currently in the cart, just remove all items of that type from the cart.
+
+## Game of rooms
+Remember a game of rooms? If not, it’s alright, we will go back over the directions. Anyways, let’s create it in JavaScript. The mechanics are going to stay the same, but our execution is going to be different. A quick reminder of the mechanics of the game:
+
+* Your character starts in a “room”.
+* The description of the room is printed. The description should give the user a hint about what to do next.
+* A > symbol is shown to prompt the user for input.
+* There are 4 options for movement input: N for north, S for south, E for east and W for west.
+* If the character moves in a direction that is allowed, the description of the new room is printed and the prompt is shown again for inputting additional movement commands or special room-specific commands.
+* If the command inputted makes no sense in the context of the current room, a game-appropriate error message must be shown and the description of the current room along with the prompt must be repeated.
+* A room's special commands can trigger any behavior desired. Use your imagination!
+
+### Iteration 1
+Create the above mentioned game in JavaScript with all of the basic rules implemented, and a room for north, south, east, and west. Let's take a moment to talk about how we should structure our Game and Room classes.
+
+Our Room class should have attributes that hold a room’s correct answer, the rooms incorrect answer(its hint), and a description (what is prompted when the room appears)
+
+Our Game class should hold the current game’s state. This means that our game should hold a list of room objects, and the room number that we’re currently on...and probably some more stuff later down the road :).
+
+A game should contain many rooms, and now it’s your job to move our user from room to room, based on their answers.
+
