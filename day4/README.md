@@ -51,3 +51,5 @@ Our Game class should hold the current game’s state. This means that our game 
 
 A game should contain many rooms, and now it’s your job to move our user from room to room, based on their answers.
 
+### Iteration 2: Inventory
+Add usable objects and an inventory to the game. This means: You can pick up and drop objects in different rooms. 
