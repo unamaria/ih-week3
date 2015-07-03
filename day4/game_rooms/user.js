@@ -14,8 +14,9 @@ User.prototype.getName = function(callback) {
 	var options = {
 		prompt: 'What\'s your name?\n'
 	};
+	var user = this;
 	read(options, function (err, input) {
-		this.name = input;
+		user.name = input;
 		callback();
 	});
 };

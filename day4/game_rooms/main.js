@@ -16,4 +16,4 @@ game.addRoom(room4);
 
 room2.addObject(sword);
 
-game.startGame();
+game.on();

@@ -8,13 +8,12 @@ var Game = function () {
 	this.user = new User();
 };
 
-Game.prototype.startGame = function () {
+Game.prototype.on = function () {
 	this.getUserName();	
 }
 
 Game.prototype.start = function() {
 	console.log('*------------ Welcome to Game of Rooms ------------*\n');
-	console.log(this.user);
 	console.log('Hello, ' + this.user.name + '\n');
 	this.currentRoom = this.rooms[0];
 	console.log(this.currentRoom.description);
@@ -47,7 +46,7 @@ Game.prototype.checkInput = function(err, input) {
 		this.currentRoom.removeObject(pickedObject);
 		console.log(this.currentRoom.description);
 		this.getInput();
-	} else if (this.currentRoom.correctInput(input)) {
+	} else if (this.currentRoom.correctMove(input)) {
 		this.moveNext();
 	}	else {
 		console.log(this.currentRoom.errorMessage);

@@ -6,7 +6,7 @@ var Room = function(description, errorMessage, allowedMovements) {
 	this.objectsAvailable = [];
 };
 
-Room.prototype.correctInput = function(input) {
+Room.prototype.correctMove = function(input) {
 	return this.allowedMovements.indexOf(input) !== -1;
 };
 
