@@ -2,30 +2,35 @@ var read = require('read');
 
 var Game = function () {
 	this.rooms = [];
-	this.currentRoom = 0;
+	this.currentPosition = 0;
+	this.currentRoom;
 };
 
 Game.prototype.start = function() {
-	console.log(this.rooms[this.currentRoom].description);
+	this.currentRoom = this.rooms[0];
+	console.log('*------------ Welcome to Game of Rooms ------------*');
+	console.log(this.currentRoom.description);
 	this.getInput();
 };
 
 Game.prototype.moveNext = function() {
-	if (this.currentRoom === this.rooms.length - 1) {
-		console.log('CONGRATULATIONS! You reached the end.');
+	if (this.currentPosition === this.rooms.length - 1) {
+		console.log('CONGRATULATIONS!!!');
+		console.log('*------------ The End ------------*');
 	} else {
-		this.currentRoom++;
-		console.log(this.rooms[this.currentRoom].description);
+		this.currentPosition++;
+		this.currentRoom = this.rooms[this.currentPosition];
+		console.log(this.currentRoom.description);
 		this.getInput();
 	}
 };
 
 Game.prototype.checkInput = function(err, input) {
-	if (this.rooms[this.currentRoom].allowedMovements.indexOf(input) !== -1 ) {
+	if (this.currentRoom.allowedMovements.indexOf(input) !== -1 ) {
 		this.moveNext();
 	}	else {
-		console.log(this.rooms[this.currentRoom].errorMessage);
-		console.log(this.rooms[this.currentRoom].description);
+		console.log(this.currentRoom.errorMessage);
+		console.log(this.currentRoom.description);
 		this.getInput();
 	}
 };
