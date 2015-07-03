@@ -19,14 +19,18 @@ Game.prototype.help = function() {
 	console.log('Want to see these intructions again? -> Help \n');
 };
 
+Game.prototype.resume = function() {
+	console.log(this.currentRoom.description);
+	this.currentRoom.showObjects();
+	this.getInput();
+};
+
 Game.prototype.start = function() {
 	console.log('*------------ Welcome to Game of Rooms ------------*\n');
 	console.log('Hello, ' + this.user.name + '\n');
 	this.help();
 	this.currentRoom = this.rooms[0];
-	console.log(this.currentRoom.description);
-	this.currentRoom.showObjects();
-	this.getInput();
+	this.resume();
 };
 
 Game.prototype.getUserName = function() {
@@ -40,9 +44,7 @@ Game.prototype.moveNext = function() {
 	} else {
 		this.currentPosition++;
 		this.currentRoom = this.rooms[this.currentPosition];
-		console.log(this.currentRoom.description);
-		this.currentRoom.showObjects();
-		this.getInput();
+		this.resume();
 	}
 };
 
@@ -51,30 +53,24 @@ Game.prototype.checkInput = function(err, input) {
 	if (inputCommands[0] === 'PICK') {
 		if (inputCommands.length !== 3) {
 			console.log('I don\'t get it.');
-			console.log(this.currentRoom.description);
-			this.getInput();
+			this.resume();
 		} else {
 			var pickedObject = this.currentRoom.getObject(inputCommands[2]);
 			this.user.pickObject(pickedObject);
 			this.currentRoom.removeObject(pickedObject);			
-			console.log(this.currentRoom.description);
-			this.getInput();
+			this.resume();
 		}
 	} else if (inputCommands[0] === 'INVENTORY') {
 		this.user.showInventory();
-		console.log(this.currentRoom.description);
-		this.getInput();
+		this.resume();
 	} else if (this.currentRoom.correctMove(input)) {
 		this.moveNext();
 	} else if (inputCommands[0] === 'HELP') {
 		this.help();
-		console.log(this.currentRoom.description);
-		this.getInput();
+		this.resume();
 	}	else {
 		console.log(this.currentRoom.errorMessage);
-		console.log(this.currentRoom.description);
-		this.currentRoom.showObjects();
-		this.getInput();
+		this.resume();
 	}
 };
 

@@ -23,9 +23,9 @@ User.prototype.pickObject = function(object) {
 
 User.prototype.showInventory = function() {
 	if (this.inventory.length > 0) {
-		console.log('You have: \n');
+		console.log('You have:');
 		this.inventory.forEach (function(object) {  
-			console.log('- ' + object.name);
+			console.log('- ' + object.name.toLowerCase());
 		});
 	} else {
 		console.log('No objects yet!');
