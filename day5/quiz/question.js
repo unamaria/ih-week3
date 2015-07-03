@@ -1,8 +1,8 @@
 
 var Question = function(text, answer) {
+	this.createId();
 	this.text = text;
 	this.answer = answer;
-	this.createId();
 };
 
 Question.prototype.lastId = 0;
@@ -12,10 +12,12 @@ Question.prototype.createId = function () {
 	Question.prototype.lastId += 1;
 };
 
-var firstQuestion = new Question("some text", "N");
-var secondQuestoin = new Question("another text", "S");
+Question.prototype.print = function() {
+	console.log(this.text);
+};
 
-console.log(firstQuestion)
-console.log(secondQuestoin)
+Question.prototype.correctAnswer = function(input) {
+	return input.toUpperCase() === this.answer.toUpperCase();
+};
 
 module.exports = Question;
