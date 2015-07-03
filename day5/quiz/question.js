@@ -1,8 +1,9 @@
 
-var Question = function(text, answer) {
+var Question = function(text, answer, points) {
 	this.createId();
 	this.text = text;
 	this.answer = answer;
+	this.points = points;
 };
 
 Question.prototype.lastId = 0;
@@ -13,7 +14,7 @@ Question.prototype.createId = function () {
 };
 
 Question.prototype.print = function() {
-	console.log(this.text);
+	console.log(this.text + '(Points: ' + this.points + ')');
 };
 
 Question.prototype.correctAnswer = function(input) {

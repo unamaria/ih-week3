@@ -1,16 +1,26 @@
 var read = require('read');
+var User = require('./user.js');
 
 var Quiz = function() {
 	this.questions = [];
 	this.currentQuestionIndex = 0;
 	this.currentQuestion;
+	this.user = new User();
 };
+
+Quiz.prototype.begin = function() {
+	this.getUserName();	
+}
+
+Quiz.prototype.getUserName = function() {
+	this.user.getName(this.firstQuestion.bind(this));
+}
 
 Quiz.prototype.addQuestion = function(question) {
 	this.questions.push(question);
 };
 
-Quiz.prototype.begin = function() {
+Quiz.prototype.firstQuestion = function() {
 	this.currentQuestion = this.questions[0];
 	this.getInput();
 };
