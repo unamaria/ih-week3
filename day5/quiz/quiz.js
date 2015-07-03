@@ -5,10 +5,12 @@ var Quiz = function() {
 	this.questions = [];
 	this.currentQuestionIndex = 0;
 	this.currentQuestion;
+	this.randomIndex;
 	this.user = new User();
 };
 
 Quiz.prototype.begin = function() {
+	this.randomQuestion();
 	this.getUserName();	
 }
 
@@ -20,6 +22,11 @@ Quiz.prototype.addQuestion = function(question) {
 	this.questions.push(question);
 };
 
+Quiz.prototype.randomQuestion = function() {
+	this.randomIndex = Math.floor(Math.random() * this.questions.length);
+	this.questions[this.randomIndex].points *= 2;
+};
+
 Quiz.prototype.firstQuestion = function() {
 	console.log('Hi ' + this.user.name + '!');
 	console.log('Let\'s check how good are you with capitals');
@@ -28,15 +35,18 @@ Quiz.prototype.firstQuestion = function() {
 };
 
 Quiz.prototype.nextQuestion = function() {
-	if (this.currentQuestionIndex + 1 == this.questions.length) {
+	if (this.currentQuestionIndex === this.questions.length - 1) {
 		console.log('You earned a total of ' + this.user.totalPoints + ' points');
 		if (this.user.totalPoints > 0) {
 			console.log('Well done!');
 		} else {
 			console.log('Ehem. Keep playing!')
 		}
-	} else {	
+	} else {
 		this.currentQuestionIndex++;
+		if (this.randomIndex === this.currentQuestionIndex) {
+			console.log('This is a bonus question, it has doubled its points!');
+		}
 		this.currentQuestion = this.questions[this.currentQuestionIndex];
 		this.getInput();
 	}

@@ -14,7 +14,7 @@ Question.prototype.createId = function () {
 };
 
 Question.prototype.print = function() {
-	console.log(this.text + '(Points: ' + this.points + ')');
+	console.log(this.text + ' (Points: ' + this.points + ')');
 };
 
 Question.prototype.correctAnswer = function(input) {
