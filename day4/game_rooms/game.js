@@ -47,14 +47,20 @@ Game.prototype.moveNext = function() {
 };
 
 Game.prototype.checkInput = function(err, input) {
-	var inputCommands = input.split(' ');
-	if (inputCommands[0] === 'Pick') {
-		var pickedObject = this.currentRoom.getObject(inputCommands[2]);
-		this.user.pickObject(pickedObject);
-		this.currentRoom.removeObject(pickedObject);
-		console.log(this.currentRoom.description);
-		this.getInput();
-	} else if (inputCommands[0] === 'Inventory') {
+	var inputCommands = input.toUpperCase().split(' ');
+	if (inputCommands[0] === 'PICK') {
+		if (inputCommands.length !== 3) {
+			console.log('I don\'t get it.');
+			console.log(this.currentRoom.description);
+			this.getInput();
+		} else {
+			var pickedObject = this.currentRoom.getObject(inputCommands[2]);
+			this.user.pickObject(pickedObject);
+			this.currentRoom.removeObject(pickedObject);			
+			console.log(this.currentRoom.description);
+			this.getInput();
+		}
+	} else if (inputCommands[0] === 'INVENTORY') {
 		this.user.showInventory();
 		console.log(this.currentRoom.description);
 		this.getInput();

@@ -7,7 +7,7 @@ var Room = function(description, errorMessage, allowedMovements) {
 };
 
 Room.prototype.correctMove = function(input) {
-	return this.allowedMovements.indexOf(input) !== -1;
+	return this.allowedMovements.indexOf(input.toUpperCase()) !== -1;
 };
 
 Room.prototype.getObject = function (objName) {

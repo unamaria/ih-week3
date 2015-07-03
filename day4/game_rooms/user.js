@@ -18,7 +18,7 @@ User.prototype.getName = function(callback) {
 
 User.prototype.pickObject = function(object) {
 	this.inventory.push(object);
-	console.log('You picked up a ' + object.name);
+	console.log('You picked up a ' + object.name.toLowerCase());
 };
 
 User.prototype.showInventory = function() {
