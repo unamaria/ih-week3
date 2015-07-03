@@ -2,6 +2,7 @@ var read = require('read');
 
 var Quiz = function() {
 	this.questions = [];
+	this.currentQuestionIndex = 0;
 	this.currentQuestion;
 };
 
@@ -14,11 +15,23 @@ Quiz.prototype.begin = function() {
 	this.getInput();
 };
 
+Quiz.prototype.nextQuestion = function() {
+	if (this.currentQuestionIndex + 1 == this.questions.length) {
+		console.log('Well done!');
+	} else {	
+		this.currentQuestionIndex++;
+		this.currentQuestion = this.questions[this.currentQuestionIndex];
+		this.getInput();
+	}
+};
+
 Quiz.prototype.checkInput = function(err, input) {
 	if (this.currentQuestion.correctAnswer(input)) {
-		console.log('correct');
+		console.log('You are good!');
+		this.nextQuestion();
 	} else {
-		console.error('incorrect');
+		console.log('Really?');
+		this.getInput();
 	}
 };
 
