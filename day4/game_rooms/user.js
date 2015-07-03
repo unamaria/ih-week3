@@ -5,11 +5,6 @@ var User = function() {
 	this.inventory = [];
 };
 
-// User.prototype.setName = function(err, input) {
-// 	this.name = input;
-// 	process.stdin.resume();
-// };
-
 User.prototype.getName = function(callback) {
 	var options = {
 		prompt: 'What\'s your name?\n'
@@ -24,6 +19,17 @@ User.prototype.getName = function(callback) {
 User.prototype.pickObject = function(object) {
 	this.inventory.push(object);
 	console.log('You picked up a ' + object.name);
+};
+
+User.prototype.showInventory = function() {
+	if (this.inventory.length > 0) {
+		console.log('You have: \n');
+		this.inventory.forEach (function(object) {  
+			console.log('- ' + object.name);
+		});
+	} else {
+		console.log('No objects yet!');
+	}
 };
 
 module.exports = User;
