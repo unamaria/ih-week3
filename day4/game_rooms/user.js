@@ -29,7 +29,6 @@ User.prototype.pickObject = function(object) {
 
 User.prototype.dropObject = function(object) {
 	this.inventory = this.inventory.filter (function(obj) {
-		console.log(object);
 		return object.name !== obj.name;
 	});
 	console.log('You dropped a ' + object.name.toLowerCase());
