@@ -18,7 +18,7 @@ Room.prototype.getObject = function (objName) {
 
 Room.prototype.showObjects = function() {
 	this.objectsAvailable.forEach (function(object) {
-		console.log('You can see a ' + object.name);
+		console.log('You can see a ' + object.name.toLowerCase());
 	});
 };
 
@@ -27,11 +27,9 @@ Room.prototype.addObject = function(object) {
 };
 
 Room.prototype.removeObject = function(object) {
-	for (var i = this.objectsAvailable.length - 1; i >= 0; i--) {
-		if (this.objectsAvailable[i].name === object.name) {
-			this.objectsAvailable.splice(i, 1);			// FILTER
-		}
-	};
+	this.objectsAvailable = this.objectsAvailable.filter (function(obj) {
+		return object.name !== obj.name;
+	});
 };
 
 module.exports = Room;

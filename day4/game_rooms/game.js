@@ -14,7 +14,8 @@ Game.prototype.on = function() {
 
 Game.prototype.help = function() {
 	console.log('Want to move? -> N (north), S (south), E (East), W (West)');
-	console.log('Want to pick up object? -> Pick up <object>');
+	console.log('Want to pick up an object? -> Pick up <object>');
+	console.log('Want to drop an object? -> Drop <object>');
 	console.log('Want to check your inventory? -> Inventory');
 	console.log('Want to see these intructions again? -> Help \n');
 };
@@ -51,16 +52,26 @@ Game.prototype.moveNext = function() {
 Game.prototype.checkInput = function(err, input) {
 	var inputCommands = input.toUpperCase().split(' ');
 	if (inputCommands[0] === 'PICK') {
-		if (inputCommands.length !== 3) {
-			console.log('I don\'t get it.');
-			this.resume();
+		if (this.currentRoom.objectsAvailable.length > 0) {
+			if (inputCommands.length !== 3) {
+				console.log('I don\'t get it.');
+				this.resume();
+			} else {
+				var pickedObject = this.currentRoom.getObject(inputCommands[2]);
+				this.user.pickObject(pickedObject);
+				this.currentRoom.removeObject(pickedObject);			
+				this.resume();
+			}
 		} else {
-			var pickedObject = this.currentRoom.getObject(inputCommands[2]);
-			this.user.pickObject(pickedObject);
-			this.currentRoom.removeObject(pickedObject);			
+			console.log('There is nothing to pick up');
 			this.resume();
 		}
-	} else if (inputCommands[0] === 'INVENTORY') {
+	} else if (inputCommands[0] === 'DROP') { 
+		var droppedObject = this.user.getObject(inputCommands[1]);
+		this.user.dropObject(droppedObject);
+		this.currentRoom.addObject(droppedObject);
+		this.resume();
+  } else if (inputCommands[0] === 'INVENTORY') {
 		this.user.showInventory();
 		this.resume();
 	} else if (this.currentRoom.correctMove(input)) {
