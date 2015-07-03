@@ -26,7 +26,7 @@ Game.prototype.moveNext = function() {
 };
 
 Game.prototype.checkInput = function(err, input) {
-	if (this.currentRoom.allowedMovements.indexOf(input) !== -1 ) {
+	if (this.currentRoom.correctInput(input)) {
 		this.moveNext();
 	}	else {
 		console.log(this.currentRoom.errorMessage);
