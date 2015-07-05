@@ -17,4 +17,4 @@ Ironhack third week exercises: HTML, CSS, Bootstrap, Sass, JavaScript
 * Game of rooms (OO JavaScript, read module, module.exports)
 
 ## Day 5
-* Quiz Game (TODO)
+* Quiz Game (OO JavaScript, read module, module.exports)
